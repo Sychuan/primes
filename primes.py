@@ -23,9 +23,12 @@ for x in range(np.shape(img)[0]//2-delta,np.shape(img)[0]//2,1):
         if (is_prime(abs(x^y))):
             img[x+delta//2][y+delta//2] = 1
 
-print(img)
+
+ax = plt.axes([0, 0, 1, 1])
 plt.axis('off')
+ax.axes.get_xaxis().set_visible(False)
+ax.axes.get_yaxis().set_visible(False)
 plt.plasma()
 plt.imshow(img, interpolation="bicubic")
-
+plt.savefig("figure.png", dpi=300, bbox_inches='tight', pad_inches=0)
 plt.show()
